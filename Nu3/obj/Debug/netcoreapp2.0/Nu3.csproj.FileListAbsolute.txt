@@ -1,0 +1,11 @@
+C:\Nu3\Nu3\bin\Debug\netcoreapp2.0\Nu3.deps.json
+C:\Nu3\Nu3\bin\Debug\netcoreapp2.0\Nu3.runtimeconfig.json
+C:\Nu3\Nu3\bin\Debug\netcoreapp2.0\Nu3.runtimeconfig.dev.json
+C:\Nu3\Nu3\bin\Debug\netcoreapp2.0\Nu3.dll
+C:\Nu3\Nu3\obj\Debug\netcoreapp2.0\Nu3.csprojResolveAssemblyReference.cache
+C:\Nu3\Nu3\obj\Debug\netcoreapp2.0\Nu3.csproj.CoreCompileInputs.cache
+C:\Nu3\Nu3\obj\Debug\netcoreapp2.0\Nu3.AssemblyInfoInputs.cache
+C:\Nu3\Nu3\obj\Debug\netcoreapp2.0\Nu3.AssemblyInfo.cs
+C:\Nu3\Nu3\bin\Debug\netcoreapp2.0\Nu3.pdb
+C:\Nu3\Nu3\obj\Debug\netcoreapp2.0\Nu3.dll
+C:\Nu3\Nu3\obj\Debug\netcoreapp2.0\Nu3.pdb
