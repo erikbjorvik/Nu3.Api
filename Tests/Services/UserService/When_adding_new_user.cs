@@ -9,7 +9,7 @@ using FakeItEasy;
 namespace Tests.Services.UserService
 {
     public class When_adding_new_user
-    {
+    {/*
         readonly Nu3.Services.UserService _userService;
         readonly IDBCommunication _dbCommunication;
 
@@ -93,6 +93,6 @@ namespace Tests.Services.UserService
             Assert.Throws<ExternalException>(() => _userService.AddUser(user));
 
         }
-
+*/
     }
 }

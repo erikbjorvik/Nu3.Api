@@ -4,6 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
+using Nu3.Configuration;
+using Nu3.Models;
+using Nu3.Services.Interfaces;
 
 namespace Nu3.Controllers
 {
@@ -11,12 +15,33 @@ namespace Nu3.Controllers
     [Route("api/beacons")]
     public class BeaconsController : Controller
     {
-        [Produces("application/json")]
-        [HttpGet]
-        public IActionResult Get(int id)
+        private IDataAccessProvider _dataAccessProvider;
+        
+        public BeaconsController(IDataAccessProvider dataAccessProvider)
         {
-            return Json("test");
+            _dataAccessProvider = dataAccessProvider;
         }
 
-    }
+        [HttpPost]
+        public StatusCodeResult Create([FromBody] Beacon beacon)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(422);
+            }
+            
+            _dataAccessProvider.Create(beacon, DatabaseConfiguration.BeaconsEntity);
+            return StatusCode(201);
+            
+        }
+        
+        [Produces("application/json")]
+        [HttpGet("{id}")]
+        public JsonResult Index(string id)
+        {
+            ObjectId beaconId = new ObjectId(id);
+            return Json(_dataAccessProvider.Get<User>(beaconId, DatabaseConfiguration.BeaconsEntity));
+        }
+
+    }                                         
 }

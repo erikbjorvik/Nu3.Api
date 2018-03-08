@@ -4,35 +4,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Diagnostics;
 using MongoDB.Bson;
 using Nu3.Configuration;
 using Nu3.Models;
-using Nu3.Services;
 using Nu3.Services.Interfaces;
+using Nu3Core.Models;
 
 namespace Nu3.Controllers
 {
     [Produces("application/json")]
-    [Route("api/user")]
-    public class UserController : Controller
+    [Route("api/[controller]")]
+    public class IntakeController : Controller
     {
         private IDataAccessProvider _dataAccessProvider;
-
-        public UserController(IDataAccessProvider dataAccessProvider)
+        
+        public IntakeController(IDataAccessProvider dataAccessProvider)
         {
             _dataAccessProvider = dataAccessProvider;
         }
-
+        
         [HttpPost]
-        public StatusCodeResult Create([FromBody] User user)
+        public StatusCodeResult Create([FromBody] Intake intake)
         {
+            
             if (!ModelState.IsValid)
             {
                 return StatusCode(422);
             }
             
-            _dataAccessProvider.Create(user, DatabaseConfiguration.UsersEntity);
+            if (!_dataAccessProvider.Exists<User>(new ObjectId(intake.UserId), DatabaseConfiguration.UsersEntity))
+            {
+                return StatusCode(406);
+            }
+            
+            _dataAccessProvider.Create(intake, DatabaseConfiguration.IntakeEntity);
             return StatusCode(201);
             
         }
@@ -41,9 +46,8 @@ namespace Nu3.Controllers
         [HttpGet("{id}")]
         public JsonResult Index(string id)
         {
-            ObjectId userId = new ObjectId(id);
-            return Json(_dataAccessProvider.Get<User>(userId, DatabaseConfiguration.UsersEntity));
+            return Json(_dataAccessProvider.Get<Intake>(new ObjectId(id), DatabaseConfiguration.IntakeEntity));
         }
-        
-    }
+
+    }                                         
 }

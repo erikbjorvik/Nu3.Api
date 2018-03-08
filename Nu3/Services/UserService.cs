@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Nu3.Models;
 using Nu3.Services.Interfaces;
 
@@ -10,12 +11,6 @@ namespace Nu3.Services
 {
     public class UserService : IUserService
     {
-        private IDBCommunication _dbCommunication;
-
-        public UserService(IDBCommunication dbCommunication)
-        {
-            _dbCommunication = dbCommunication;
-        }
 
         public IEnumerable<User> GetUsersByBeaconId(string id)
         {
@@ -24,6 +19,7 @@ namespace Nu3.Services
 
         public void AddUser(User user)
         {
+            
             if (user == null)
             {
                 throw new ArgumentNullException("User cannot be null");
@@ -44,11 +40,6 @@ namespace Nu3.Services
                 throw new ArgumentException("SocialSecurityNumber not valid");
             }
 
-            if (!_dbCommunication.AddUser(user))
-            {
-                throw new ExternalException("Could not add to datasource");
-
-            }
 
 
         }
