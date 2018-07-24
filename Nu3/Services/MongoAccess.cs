@@ -12,50 +12,72 @@ namespace Nu3.Services
     public class MongoAccess : IDataAccessProvider
     {
         private MongoClient _client;
-        private MongoServer _server;
-        private MongoDatabase _db;
+        private IMongoDatabase _db;
  
         public MongoAccess()
         {
             _client = new MongoClient(DatabaseConfiguration.DBConnectionString);
-            _server = _client.GetServer();
-            _db = _server.GetDatabase(DatabaseConfiguration.DBName);
+            _db = _client.GetDatabase(DatabaseConfiguration.DBName);
         }
  
-        public IEnumerable<T> Get<T>(string entity)
+        public IEnumerable<T> Get<T>(string collectionName)
         {
-            return _db.GetCollection<T>(entity).FindAll();
+            var collection = _db.GetCollection<T>(collectionName);
+            var result = collection.Find(new BsonDocument()).ToList();
+
+            return result;
+        }
+
+        public IEnumerable<T> GetList<T>(string collectionName, BsonDocument filter)
+        {
+            var collection = _db.GetCollection<T>(collectionName);
+            var result = collection.Find(filter).ToList();
+
+            return result;
+        }
+
+        public IEnumerable<T> GetAll<T>(string collectionName)
+        {
+            var collection = _db.GetCollection<T>(collectionName);
+            var result = collection.Find(new BsonDocument()).ToList();
+
+            return result;
         }
  
- 
-        public T Get<T>(ObjectId id, string entity)
+        public T Get<T>(ObjectId id, string collectionName)
         {
-            var res = Query<User>.EQ(p=>p.Id,id);
-            return _db.GetCollection<T>(entity).FindOne(res);
+            var collection = _db.GetCollection<T>(collectionName);
+            var filter = new BsonDocument("_id", id);
+            var result = collection.Find(filter).First<T>();
+
+            return result;
         }
  
-        public T Create<T>(T p, string entity)
+        public T Create<T>(T p, string collectionName)
         {
-            _db.GetCollection<T>(entity).Save(p);
+            _db.GetCollection<T>(collectionName).InsertOne(p);
             return p;
         }
  
-        public void Update(ObjectId id, User p)
+        public void Update<T>(ObjectId id, string collectionName, T replacement)
         {
-            p.Id = id;
-            var res = Query<User>.EQ(pd => pd.Id,id);
-            var operation = Update<User>.Replace(p);
-            _db.GetCollection<User>("Users").Update(res,operation);
-        }
-        public void Remove(ObjectId id, string entity)
-        {
-            var res = Query<User>.EQ(e => e.Id, id);
-            _db.GetCollection<User>(entity).Remove(res);
+            var collection = _db.GetCollection<T>(collectionName);
+            var filter = new BsonDocument("_id", id);
+            var result = collection.FindOneAndReplace(filter, replacement);
         }
 
-        public bool Exists<T>(ObjectId id, string entity)
+        public void Remove<T>(ObjectId id, string collectionName)
         {
-            return (Get<T>(id, entity) != null);
+            var collection = _db.GetCollection<T>(collectionName);
+            var filter = new BsonDocument("_id", id);
+            var result = collection.DeleteOne(filter);
+        }
+
+        public bool Exists<T>(ObjectId id, string collectionName)
+        {
+            var collection = _db.GetCollection<T>(collectionName);
+            var filter = new BsonDocument("_id", id);
+            return collection.Find(filter).Any<T>();
         }
     }
 }

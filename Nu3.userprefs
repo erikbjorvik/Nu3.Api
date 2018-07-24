@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{5DEE51C1-5E6D-4550-80D2-0DE363721695}|Default">
+  <MonoDevelop.Ide.ItemProperties.Nu3 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Nu3/Models/Nutrients.cs">
+    <Files>
+      <File FileName="Nu3/Controllers/ConsumableController.cs" Line="57" Column="1" />
+      <File FileName="Nu3/Controllers/BeaconsController.cs" Line="50" Column="4" />
+      <File FileName="Nu3/Models/Beacon.cs" Line="1" Column="1" />
+      <File FileName="Nu3/Services/Interfaces/IDataAccessProvider.cs" Line="26" Column="1" />
+      <File FileName="Nu3/Enums/ConsumableType.cs" Line="7" Column="1" />
+      <File FileName="Nu3/Enums/MealCategory.cs" Line="14" Column="16" />
+      <File FileName="Nu3/Controllers/IntakeController.cs" Line="27" Column="40" />
+      <File FileName="Nu3/Controllers/PredefinedMealsController.cs" Line="1" Column="1" />
+      <File FileName="Nu3/Controllers/UserController.cs" Line="42" Column="43" />
+      <File FileName="Nu3/Models/Intake.cs" Line="27" Column="9" />
+      <File FileName="Nu3/Models/Nutrients.cs" Line="25" Column="8" />
+      <File FileName="Nu3/Models/Consumable.cs" Line="20" Column="9" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/erikbjorvik/Documents/Prosjekter/Nu3.Api/Nu3/Controllers/ConsumableController.cs" relfile="Nu3/Controllers/ConsumableController.cs" line="57" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

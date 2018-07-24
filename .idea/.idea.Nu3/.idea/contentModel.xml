@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.reporters.netstandard15.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.utility.netstandard15.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Nu3" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Configuration" t="Include">
+          <e p="DatabaseConfiguration.cs" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="BeaconsController.cs" t="Include" />
+          <e p="ConsumableController.cs" t="Include" />
+          <e p="IntakeController.cs" t="Include" />
+          <e p="UserController.cs" t="Include" />
+        </e>
+        <e p="Enums" t="Include">
+          <e p="Accuracy.cs" t="Include" />
+          <e p="ConsumableType.cs" t="Include" />
+          <e p="MealType.cs" t="Include" />
+          <e p="Mineral.cs" t="Include" />
+          <e p="Unit.cs" t="Include" />
+          <e p="Vitamin.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include" />
+        <e p="Models" t="Include">
+          <e p="Beacon.cs" t="Include" />
+          <e p="Consumable.cs" t="Include" />
+          <e p="Intake.cs" t="Include" />
+          <e p="Nutrients.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="Nu3.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="Nu3.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="Interfaces" t="Include">
+            <e p="IDataAccessProvider.cs" t="Include" />
+            <e p="IUserService.cs" t="Include" />
+          </e>
+          <e p="MongoAccess.cs" t="Include" />
+          <e p="UserService.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Tests" t="Include" />
+        <e p="wwwroot" t="Include" />
+      </e>
+      <e p="Nu3.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Tests" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="UserControllerTests.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="Tests.AssemblyInfo.cs" t="Include" />
+              <e p="Tests.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Services" t="Include">
+          <e p="UserService" t="Include">
+            <e p="When_adding_new_user.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Tests.csproj" t="IncludeRecursive" />
+        <e p="UnitTest1.cs" t="Include" />
+      </e>
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_Nu3.600345231.00" t="ExcludeRecursive" />
+  </component>
+</project>

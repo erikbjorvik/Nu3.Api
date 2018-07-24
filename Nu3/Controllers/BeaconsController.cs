@@ -40,8 +40,14 @@ namespace Nu3.Controllers
         public JsonResult Index(string id)
         {
             ObjectId beaconId = new ObjectId(id);
-            return Json(_dataAccessProvider.Get<User>(beaconId, DatabaseConfiguration.BeaconsEntity));
+            return Json(_dataAccessProvider.Get<Beacon>(beaconId, DatabaseConfiguration.BeaconsEntity));
         }
+
+		[Produces("application/json")]
+		public JsonResult Index()
+		{
+			return Json(_dataAccessProvider.Get<Beacon>(DatabaseConfiguration.BeaconsEntity));
+		}
 
     }                                         
 }
